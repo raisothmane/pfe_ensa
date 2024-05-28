@@ -1,0 +1,14 @@
+✔ auth + roles https://www.youtube.com/watch?v=G3UeClZPR4k @done(24-05-27 22:10)
+✔ create tables for category of questions and question and score 
+✔ fill in tables with data test data @done(24-05-28 19:47)
+✔ create the quiz game @done(24-05-28 19:47)
+✔ test the game @done(24-05-28 19:47)
+☐ create the top 10 leaderboard 
+☐ ui design
+
+'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
+'Alt+Enter' // Triggers `Todo: Toggle Box`
+'Alt+D' // Triggers `Todo: Toggle Done`
+'Alt+C' // Triggers `Todo: Toggle Cancelled`
+'Alt+S' // Triggers `Todo: Toggle Start`
+'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
