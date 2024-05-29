@@ -1,77 +1,76 @@
-$(document).ready(function() {
-    $('#start-quiz').click(function() {
-        var selectedCategory = $('input[name="category"]:checked').val();
+document.addEventListener('DOMContentLoaded', function() {
+    let currentQuestion = 0;
+    let timer;
+    const questions = document.querySelectorAll('.question');
+    const progressBarInner = document.getElementById('progress-bar-inner');
+    const progressText = document.getElementById('progress-text');
+    const timerElement = document.getElementById('timer');
+    const totalQuestions = questions.length;
+    const timeLimit = 30; // time limit per question in seconds
 
-        if (!selectedCategory) {
-            alert('Please select a category.');
-            return;
-        }
+    const showQuestion = (index) => {
+        questions.forEach((question, i) => {
+            question.classList.toggle('active', i === index);
+        });
+        updateProgressBar(index);
+        resetTimer();
+    };
 
-        $.ajax({
-            url: '/get-questions',
-            method: 'POST',
-            data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
-                category_id: selectedCategory
-            },
-            success: function(response) {
-                var questions = response.questions;
-                var quizForm = $('#quiz-form');
-                quizForm.empty();
-                
-                questions.forEach(function(question, index) {
-                    var questionHtml = `
-                        <div class="question" data-question-id="${question.id}">
-                            <h2 class="question-text">${question.text}</h2>
-                            <ul class="question-answers">
-                    `;
-                    question.answers.forEach(function(answer) {
-                        questionHtml += `
-                            <li>
-                                <input type="radio" name="question_${question.id}" value="${answer.id}" id="answer_${answer.id}">
-                                <label class="question-answer" for="answer_${answer.id}">${answer.text}</label>
-                            </li>
-                        `;
-                    });
-                    questionHtml += `
-                            </ul>
-                        </div>
-                    `;
-                    quizForm.append(questionHtml);
-                });
+    const updateProgressBar = (index) => {
+        const progress = Math.round(((index + 1) / totalQuestions) * 100);
+        progressBarInner.style.width = progress + '%';
+        progressText.textContent = `${index + 1} of ${totalQuestions} questions`;
+    };
 
-                $('#quiz-section').show();
-                $('#submit-quiz').show();
-                $('#category-form').hide();
-            },
-            error: function(error) {
-                console.log(error);
+    const resetTimer = () => {
+        clearInterval(timer);
+        let timeRemaining = timeLimit;
+        timerElement.textContent = `${timeRemaining}s`;
+
+        timer = setInterval(() => {
+            timeRemaining -= 1;
+            timerElement.textContent = `${timeRemaining}s`;
+
+            if (timeRemaining <= 0) {
+                clearInterval(timer);
+                markAsUnanswered();
+                goToNextQuestion();
             }
+        }, 1000);
+    };
+
+    const markAsUnanswered = () => {
+        const currentQuestionElement = questions[currentQuestion];
+        const selectedAnswer = currentQuestionElement.querySelector('input[type="radio"]:checked');
+        if (!selectedAnswer) {
+            const unansweredInput = document.createElement('input');
+            unansweredInput.type = 'hidden';
+            unansweredInput.name = `selected_answers[${currentQuestionElement.getAttribute('id').split('-')[1]}]`;
+            unansweredInput.value = 'unanswered';
+            document.getElementById('quiz-form').appendChild(unansweredInput);
+        }
+    };
+
+    const goToNextQuestion = () => {
+        if (currentQuestion < totalQuestions - 1) {
+            markAsUnanswered();
+            currentQuestion += 1;
+            showQuestion(currentQuestion);
+        }
+    };
+
+    showQuestion(currentQuestion);
+
+    document.querySelectorAll('.next-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            markAsUnanswered();
+            const nextIndex = parseInt(this.getAttribute('data-next'));
+            currentQuestion = nextIndex;
+            showQuestion(nextIndex);
         });
     });
 
-    $('#submit-quiz').click(function() {
-        var answers = {};
-        $('#quiz-form .question').each(function() {
-            var questionId = $(this).data('question-id');
-            var selectedAnswer = $(this).find('input[type="radio"]:checked').val();
-            answers[questionId] = selectedAnswer;
-        });
-
-        $.ajax({
-            url: '/calculate-score',
-            method: 'POST',
-            data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
-                answers: answers
-            },
-            success: function(response) {
-                // Handle the display of the result
-                alert('You scored ' + response.correct + ' out of ' + response.total);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
+    document.querySelector('form').addEventListener('submit', function() {
+        markAsUnanswered();
     });
 });

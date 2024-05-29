@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\Score;
 
 use Illuminate\Http\Request;
 
@@ -57,13 +58,31 @@ class QuizController extends Controller
         }
     
         $scorePercentage = ($correctCount / $totalQuestions) * 100;
-    
-        // Store the score in the database
-        // PlayerScore::create([
-        //     'user_id' => auth()->user()->id,
-        //     'category_id' => Question::find(array_key_first($selectedAnswers))->category_id,
-        //     'score' => $scorePercentage
-        // ]);
+         // Retrieve the category ID from the first question
+    $firstQuestionId = array_key_first($selectedAnswers);
+    $categoryId = Question::find($firstQuestionId)->category_id;
+     
+    // Get the current user
+    $user = auth()->user();
+
+    // Check if a score record exists for this user and category
+    $score = Score::where('user_id', $user->id)
+                  ->where('category_id', $categoryId)
+                  ->first();
+
+
+                  if ($score) {
+                    // Update the existing score
+                    $score->score += $correctCount;
+                    $score->save();
+                } else {
+                    // Create a new score record
+                    Score::create([
+                        'user_id' => $user->id,
+                        'category_id' => $categoryId,
+                        'score' => $correctCount,
+                    ]);
+                }
     
         return view('quiz.result', compact('correctCount', 'totalQuestions', 'scorePercentage'));
     }

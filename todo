@@ -3,7 +3,7 @@
 ✔ fill in tables with data test data @done(24-05-28 19:47)
 ✔ create the quiz game @done(24-05-28 19:47)
 ✔ test the game @done(24-05-28 19:47)
-☐ create the top 10 leaderboard 
+✔ create the top 10 leaderboard @done(24-05-29 13:58)
 ☐ ui design
 
 'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
