@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let timer;
     const questions = document.querySelectorAll('.question');
     const progressBarInner = document.getElementById('progress-bar-inner');
+    const progressBarText = document.getElementById('progress-bar-text');
     const progressText = document.getElementById('progress-text');
     const timerElement = document.getElementById('timer');
     const totalQuestions = questions.length;
@@ -19,7 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateProgressBar = (index) => {
         const progress = Math.round(((index + 1) / totalQuestions) * 100);
         progressBarInner.style.width = progress + '%';
+      // add style text center
+        progressBarInner.style.textAlign = 'center';    
         progressText.textContent = `${index + 1} of ${totalQuestions} questions`;
+        progressBarText.textContent = `${progress}%`;
     };
 
     const resetTimer = () => {
@@ -33,8 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (timeRemaining <= 0) {
                 clearInterval(timer);
-                markAsUnanswered();
-                goToNextQuestion();
+                if (currentQuestion === totalQuestions - 1) {
+                    markAsUnanswered();
+                    document.querySelector('form').submit();
+                } else {
+                    markAsUnanswered();
+                    goToNextQuestion();
+                }
             }
         }, 1000);
     };
@@ -74,3 +83,23 @@ document.addEventListener('DOMContentLoaded', function() {
         markAsUnanswered();
     });
 });
+
+    
+function resetButton() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var resetButton = document.getElementById('resetButton');
+        var countdown = document.getElementById('svgtimer');
+
+        resetButton.addEventListener('click', function() {
+            // Reset the countdown animation
+
+            countdown.style.animation = 'none';
+            void countdown.offsetWidth; // Trigger reflow
+            countdown.style.animation = null;
+        });
+    });
+}
+
+// Call the function to initialize the event listeners
+resetButton();
+  

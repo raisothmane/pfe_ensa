@@ -1,0 +1,179 @@
+body {
+    width: 100%;
+    height: 100vh;
+    min-height: max-content;
+    min-height: 860px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+.question {
+    display: none;
+}
+.question.active {
+    display: block;
+}
+.progress-bar {
+    
+    width: 95%;
+    background-color: #dfdfdf;
+    border-radius: 20px;
+    
+}
+.progress-text {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+}
+.title {
+    color: #FFD425;
+   font-size: 92px;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 4px 7px 5px rgba(0, 0, 0, 1);
+}
+.textn1 {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: italic;
+    font-size: medium;
+    text-align: center;
+    
+}
+.textsection {
+    border: solid 3px #000000;
+    box-shadow: 3px 19px 6px -8px rgba(0,0,0,0.89);
+    -webkit-box-shadow: 3px 19px 6px -8px rgba(0,0,0,0.89);
+    -moz-box-shadow: 3px 19px 6px -8px rgba(0,0,0,0.89);
+}
+.card  label.box{
+    background: #fff;
+    margin-top: 12px;
+    padding: 10px 12px;
+    display: flex;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.card  input[type="radio"]:checked + label.box{
+    border-color: rgb(0, 0, 0) ;
+    background: #efff15;
+    animation: scale 1.5s infinite ease-in-out;
+    box-shadow: 3px 19px 6px -8px rgba(0,0,0,0.89);
+-webkit-box-shadow: 3px 19px 6px -8px rgba(0,0,0,0.89);
+-moz-box-shadow: 3px 19px 6px -8px rgba(0,0,0,0.89);
+    
+}
+.card  label.box:hover{
+    background: #ecf7bb;
+    transform: scale(1.05);
+}
+.card  label.box .circle{
+    height: 22px;
+    width: 22px;
+    background: #fff;
+    border: 5px solid transparent;
+    display: inline-block;
+    margin-right: 15px;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+    box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2);
+    
+}
+.card  input[type="radio"]:checked + label.box .circle{
+    border-color: #8E49E8;
+    background: #fff;
+
+   
+}
+
+
+label.box .plan{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: italic;
+    font-size: medium;
+    text-align: center;
+    ;
+}
+.card input[type="radio"]{
+    display: none;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+
+.center-text {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 0.9em;
+}
+
+
+.svg1{
+  width: 400px;
+  top: -250px;
+  left: 0px;
+}
+
+
+.quiz-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.quiz-container img {
+    position: absolute;
+    top: -100px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px; /* Adjust as needed */
+}
+.question-box {
+    margin-top: 200px; /* Adjust to create space for the image */
+}
+
+
+.quiz-img {
+    margin-bottom: 20px;
+}
+
+
+
+.countdown {
+    position: absolute;
+    top: 11.5%;
+    right: 5%;
+}
+.quiz-img {
+    margin-bottom: 20px;
+}
