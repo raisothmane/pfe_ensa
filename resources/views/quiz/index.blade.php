@@ -35,7 +35,7 @@
         </div>
     </h3>
     <p class="   description font-bold">
-    Welcome to QuizGame Challenge, the ultimate quiz game where you can choose your favorite category and challenge your friends to see who reigns supreme! Dive into a variety of topics ranging from history and science to pop culture and sports. Pick a category, invite your friends, and let the battle of wits begin!
+    Welcome to QuizGame Challenge, the ultimate quiz game where you can choose your favorite category and challenge your friends to see who reigns supreme! Dive into a variety of topics ranging from history and science to pop culture and sports. Pick a category, invite your friends, and let the battle of wits begin! </p>
     <div class="button_container ">
         <div class="button left_button">
         <label for="large" class="block mb-3 text-base  text-gray-900 dark:text-dark font-bold ml-4  ">Choose Category </label>
