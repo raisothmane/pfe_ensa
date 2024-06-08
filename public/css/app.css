@@ -184,3 +184,221 @@ label.box .plan{
 .quiz-img {
     margin-bottom: 20px;
 }
+
+.section{
+    width: 30rem;
+}
+
+.title_card{
+   margin-top: -40px;
+   margin-left: -40px;
+   display: flex;
+   align-items: center;
+}
+
+
+.about{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    
+    display: inline-block;
+ 
+
+
+}
+.title_content svg {
+    margin-right: 10px; /* Adjust the spacing as needed */
+}
+.title_content {
+    display: flex;
+    align-items: center;
+}
+.description {
+    margin-top: 20px; /* Space between title and paragraph */
+    margin-bottom: 20px; /* Space between paragraph and buttons */
+}
+
+.button_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+
+    position: relative;
+}
+
+.left_button {
+    width: 200px;
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    margin-right: auto;
+}
+
+.right_button {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    margin-left: auto;
+}
+
+
+.btn {
+    --btn-color: rgb(124 45 18);
+    --btn-bg: rgb(252 211 77);
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 14px 22px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: system-ui;
+    border: 2px solid var(--btn-color);
+    transition: 100ms ease;
+    box-shadow: 5px 5px 0 0 var(--btn-color);
+  }
+  
+
+  
+  .btn svg {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+  }
+  
+  .btn:hover  {
+    box-shadow: 2px 2px 0 0 var(--btn-color);
+  }
+   .selectn1:hover {
+    box-shadow: 2px 2px 0 0 var(--btn-color);
+  }
+  
+  .selectn1:active {
+    transition: 50ms ease;
+    box-shadow:  0 0 0 0 var(--btn-color);
+    
+  }
+  .btn:active  {
+    transition: 50ms ease;
+    box-shadow:  0 0 0 0 var(--btn-color);
+  }
+  .selectn1:active  {
+    transition: 50ms ease;
+    box-shadow:  0 0 0 0 var(--btn-color);
+    
+  }
+  
+  .btn:focus-visible {
+    outline: 0;
+    --btn-color: #002cc8;
+  }
+  .selectn1:focus-visible {
+    outline: 0;
+    --btn-color: #000000;
+  }
+  
+   .selectn1:focus-visible::after {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translateX(-50%);
+    content: "\21E7";
+    animation: float .5s ease-in-out infinite;
+  }
+  .btn:focus-visible::after  {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    transform: translateX(-50%);
+    content: "\21E7";
+    animation: float .5s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+      0% {
+          transform: translateX(-50%) translatey(0px);
+      }
+      50% {
+          transform: translateX(-50%) translatey(-6px);
+      }
+      100% {
+          transform: translateX(-50%) translatey(0px);
+      }
+  }
+
+.selectn1{
+    border: solid 2.5px rgba(124,45,18);
+    box-shadow: 5px 5px 1px 0px rgba(124,45,18);
+    transition: 100ms ease;
+    
+}
+
+.selectn1::selection {
+    color: none;
+    background: none;
+}
+
+
+
+.leaderboardbtn{
+    --btn-color: rgb(124 45 18);
+    --btn-bg: rgb(252 211 77);
+    width: 100%;
+    
+    margin-top: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 14px 22px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: system-ui;
+    border: 2px solid var(--btn-color);
+    transition: 100ms ease;
+    box-shadow: 5px 5px 0 0 var(--btn-color);
+}
+.leaderboardbtn svg {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+  }
+
+.leaderboardbtn:hover  {
+    box-shadow: 2px 2px 0 0 var(--btn-color);
+  }
+  .leaderboardbtn:active {
+    transition: 50ms ease;
+    box-shadow:  0 0 0 0 var(--btn-color);
+    
+  }  
+
+    .leaderboardbtn:focus-visible {
+        outline: 0;
+        --btn-color: #002cc8;
+    }
+
+    .leaderboardbtn:focus-visible::after {
+        position: absolute;
+        left: 50%;
+        top: calc(100% + 12px);
+        transform: translateX(-50%);
+        content: "\21E7";
+        animation: float .5s ease-in-out infinite;
+    }
+
+ 

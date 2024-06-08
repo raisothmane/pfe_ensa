@@ -93,6 +93,8 @@
     </form>
 <button class="hidden" id="resetButton" onclick="resetButton()" >Reset Timer</button>
   
+
+</body>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
   
@@ -101,5 +103,4 @@
 
 
     </script>
-</body>
 </html>
