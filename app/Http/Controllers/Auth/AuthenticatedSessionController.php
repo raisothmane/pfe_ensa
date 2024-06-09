@@ -25,14 +25,14 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
+    
         $request->session()->regenerate();
-
+    
         if (Auth::user()->user_type === 'admin') {
             return redirect('admin/dashboard');
         }
-
-        return redirect('dashboard');
+    
+        return redirect()->route('quiz.index');
     }
 
     /**

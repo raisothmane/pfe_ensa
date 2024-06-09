@@ -103,3 +103,11 @@ function resetButton() {
 // Call the function to initialize the event listeners
 resetButton();
   
+function validateForm() {
+    const category = document.getElementById('category').value;
+    if (category === "Choose Category") {
+        alert("You need to select a category to play.");
+        return false;
+    }
+    return true;
+}
