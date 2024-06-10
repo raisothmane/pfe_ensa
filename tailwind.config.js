@@ -18,6 +18,9 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            height: {
+                100: '24rem',
+              },
         },
     },
 

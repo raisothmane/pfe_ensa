@@ -415,3 +415,29 @@ label.box .plan{
         right: 2%;
         margin-left: auto;
     }
+
+    .right_button {
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        margin-left: auto;
+    }
+
+    .loginbtn{
+        position: absolute;
+        bottom: 0%;
+        right: 3%;
+        margin-left: auto;
+    }
+    .registerbtn{
+        position: absolute;
+        bottom: 0%;
+        right: 3%;
+        margin-left: auto;
+    }
+
+    .registerbtn svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
