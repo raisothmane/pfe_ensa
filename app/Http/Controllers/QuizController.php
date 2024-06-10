@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\Answer;
@@ -19,13 +20,13 @@ class QuizController extends Controller
     public function start(Request $request)
     {
         $categoryId = $request->input('category_id');
-    
+      
         // Retrieve 10 random questions for the selected category
         $questions = Question::where('category_id', $categoryId)
             ->inRandomOrder()
             ->limit(10)
             ->get();
-    
+            
         // Retrieve answers for the questions
         $answers = Answer::whereIn('question_id', $questions->pluck('id'))
             ->get()

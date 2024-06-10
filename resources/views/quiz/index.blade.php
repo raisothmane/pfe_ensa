@@ -50,7 +50,7 @@
     <div class="button_container ">
         <div class="button left_button">
         <label for="large" class="block mb-3 text-base  text-gray-900 dark:text-dark font-bold ml-4  ">Choose Category </label>
-  <select name="category" id="category" class="selectn1 block w-full px-4 py-3 text-base text-orange-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-amber-300 dark:border-orange-900 dark:placeholder-gray-400 dark:text-orange-900 font-bold  dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category_id">
+  <select name="category_id" id="category" class="selectn1 block w-full px-4 py-3 text-base text-orange-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-amber-300 dark:border-orange-900 dark:placeholder-gray-400 dark:text-orange-900 font-bold  dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category_id">
       <option selected>Choose Category</option>
   @foreach($categories as $category)  
   <option  value="{{ $category->id }}">{{ $category->name }}</option>

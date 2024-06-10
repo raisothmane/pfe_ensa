@@ -20,18 +20,18 @@
 
 <div class="bg-gray-100 h-96 mt-6 p-12 textsection question-box section">
     
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('login') }} " >
             @csrf
     
             <!-- Email Address -->
-            <div>
+            <div  class="bg-gray-100">
                 <x-input-label for="email" :value="__('Email')" />
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
     
             <!-- Password -->
-            <div class="mt-4">
+            <div class="mt-4 bg-gray-100">
                 <x-input-label for="password" :value="__('Password')" />
     
                 <input id="password" class="w-full border-orange-900 focus:border-orange-900 focus:ring-orange-900 rounded-md shadow-sm"
@@ -45,7 +45,7 @@
             <!-- Remember Me -->
           
     
-            <div class="flex  justify-start  items-start">
+            <div class="flex  justify-start  items-start bg-gray-100">
                
             <a href="{{ route('register') }}" class="group text-orange-900 transition-all duration-300 ease-in-out absolute bottom-10">
                  <span class="bg-left-bottom bg-gradient-to-r from-orange-900 to-orange-900  bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out font-bold">    Not a member ? Register here ! </span>
