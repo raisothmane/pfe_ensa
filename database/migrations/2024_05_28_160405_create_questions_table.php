@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('correct_answer');
             $table->enum('difficulty', ['easy', 'hard']);
             $table->timestamps();
-
+            $table->unique('correct_answer');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
