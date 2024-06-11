@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('text');
-            $table->integer('correct_answer');
+            $table->integer('correct_answer')->nullable()->unique();;
             $table->enum('difficulty', ['easy', 'hard']);
             $table->timestamps();
-            $table->unique('correct_answer');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

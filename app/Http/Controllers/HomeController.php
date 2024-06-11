@@ -77,7 +77,7 @@ class HomeController extends Controller
  
      public function indexQuestions()
      {
-         $questions = Question::with('category' )->paginate(10) ;
+         $questions = Question::with('category' )->paginate(25) ;
         
          return view('admin.questions.index', compact('questions' ));
      }
@@ -116,7 +116,9 @@ class HomeController extends Controller
  
      public function indexAnswers()
      {
-         $answers = Answer::with('question')->paginate(10);
+        
+         $answers = Answer::with('question')->paginate(25);
+        // $answers = Answer::with('question')->where('is_correct', 1)->paginate(25);
          return view('admin.answers.index', compact('answers'));
      }
  
