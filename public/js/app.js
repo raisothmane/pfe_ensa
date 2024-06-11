@@ -111,3 +111,11 @@ function validateForm() {
     }
     return true;
 }
+function validateFormld() {
+    const category = document.getElementById('categoryld').value;
+    if (category === "Choose Category") {
+        alert("You need to select a category to view Leaderboard.");
+        return false;
+    }
+    return true;
+}

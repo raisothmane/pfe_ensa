@@ -441,3 +441,19 @@ label.box .plan{
         height: 20px;
         flex-shrink: 0;
       }
+
+
+
+      .gobackbtn {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        margin-left: auto;
+    }
+
+    .logoutbtn{
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        margin-left: auto;
+    }
