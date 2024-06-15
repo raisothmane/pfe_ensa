@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         var containerLoader = document.querySelector(".containerloader");
@@ -12,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 500); // Wait for 1.5 seconds before starting the animation
 });
-
 
 
 document.addEventListener('DOMContentLoaded', function() {

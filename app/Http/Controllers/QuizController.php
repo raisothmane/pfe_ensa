@@ -20,13 +20,15 @@ class QuizController extends Controller
     public function start(Request $request)
     {
         $categoryId = $request->input('category_id');
-      
+        session(['Cat' => $categoryId]);   
+        
         // Retrieve 10 random questions for the selected category
         $questions = Question::where('category_id', $categoryId)
-            ->inRandomOrder()
-            ->limit(10)
-            ->get();
-            
+        ->inRandomOrder()
+        ->limit(10)
+        ->get();
+        // Store the number of questions in the session
+        session(['TotalQuestions' => $questions]);   
         // Retrieve answers for the questions
         $answers = Answer::whereIn('question_id', $questions->pluck('id'))
             ->get()
@@ -43,13 +45,24 @@ class QuizController extends Controller
         $correctAnswers = Answer::whereIn('question_id', array_keys($selectedAnswers))
             ->where('is_correct', true)
             ->pluck('id', 'question_id');
-    
+    // Retrieve the total number of questions from the session
+    $Cat = session('Cat', 0);
+   
+
+  
         // Debugging
         // Log::info('Selected Answers: ' . json_encode($selectedAnswers));
         // Log::info('Correct Answers: ' . json_encode($correctAnswers->toArray()));
     
         // Calculate the score
         $totalQuestions = count($selectedAnswers);
+        if ($totalQuestions <= 9) {
+           // add +1 to the total questions
+              $totalQuestions = $totalQuestions + 1;
+              //  to 9 sign
+            
+
+        } 
         $correctCount = 0;
     
         foreach ($selectedAnswers as $questionId => $selectedAnswerId) {
@@ -58,10 +71,12 @@ class QuizController extends Controller
             }
         }
     
-        $scorePercentage = ($correctCount / $totalQuestions) * 100;
+        $scorePercentage = ($correctCount / $totalQuestions ) * 100;
          // Retrieve the category ID from the first question
+      
     $firstQuestionId = array_key_first($selectedAnswers);
-    $categoryId = Question::find($firstQuestionId)->category_id;
+    // $categoryId = Question::find($firstQuestionId)->category_id;
+     $categoryId = $Cat;
      
     // Get the current user
     $user = auth()->user();
@@ -87,7 +102,7 @@ class QuizController extends Controller
     
         return view('quiz.result', compact('correctCount', 'totalQuestions', 'scorePercentage'));
     }
-    
+
     
     
 }

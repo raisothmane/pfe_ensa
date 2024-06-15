@@ -5,13 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\LeaderboardController;
+require __DIR__.'/auth.php';
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -21,7 +23,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/start', [QuizController::class, 'start'])->name('quiz.start');
     Route::post('/submit', [QuizController::class, 'submit'])->name('quiz.submit');
 });
-require __DIR__.'/auth.php';
 
 Route::get('admin/dashboard', [HomeController::class, 'index'])-> middleware(['auth', 'admin'])->name('Admin_Dashboard') ;
 Route::get('admin/user_table', [HomeController::class, 'Admin_User_Table'])->middleware(['auth', 'admin'])->name('user_table');

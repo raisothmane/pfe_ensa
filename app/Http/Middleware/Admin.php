@@ -16,7 +16,7 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->user()->user_type !== 'admin') {
-            return redirect()->route('dashboard')->with('error', 'You do not have permission to access this page.');
+            return redirect()->route('quiz.index')->with('error', 'You do not have permission to access this page.');
         }
         if (auth()->user()->user_type == 'user') {
             return redirect()->route('quiz.index');
