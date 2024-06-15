@@ -8,6 +8,11 @@ use App\Http\Controllers\LeaderboardController;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+    }
     return view('auth.login');
 });
 
@@ -21,7 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz.index');
     Route::get('/start', [QuizController::class, 'start'])->name('quiz.start');
-    Route::post('/submit', [QuizController::class, 'submit'])->name('quiz.submit');
+    Route::post('/submit', [QuizController::class, 'submit'])->name('quiz.submit');    
+    Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 });
 
 Route::get('admin/dashboard', [HomeController::class, 'index'])-> middleware(['auth', 'admin'])->name('Admin_Dashboard') ;
@@ -60,7 +66,6 @@ Route::delete('admin/answers/{id}', [HomeController::class, 'deleteAnswer'])->mi
 // Route::post('/submit', [QuizController::class, 'submit'])->name('quiz.submit');
 
 
-Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
 // Route::post('/quiz/start', [QuizController::class, 'start'])->name('quiz.start');
 // Route::post('/quiz/submit', [QuizController::class, 'submit'])->name('quiz.submit');
