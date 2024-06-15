@@ -4,16 +4,81 @@
 @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Quiz Game</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo1.png') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+
   
 </head>
 <body class="h-full flex flex-col items-center w-full" style="background-image: url('{{ asset('img/bg.png')}}');">
 
-    </form>
+<div class='containerloader'>
+  <svg  width="135" height="60" viewBox="0 0 100 60">
+    <rect  x="0" y="0" width="10" height="60" rx="6" fill="#3498db">
+      <animate attributeName="height" 
+               values="60;20;60;"
+               begin='0s'
+               dur="1s"
+               repeatCount="indefinite" />
+      <animate attributeName="y" 
+               begin='0s'
+               values="0;20;0;"
+               dur="1s"
+               repeatCount="indefinite" />
+    </rect>
+    <rect x="20" y="0" width="10" height="60" rx="6" fill="#3498db">
+      <animate attributeName="height" 
+               values="60;20;60"
+               begin='0.2s'
+               dur="1s"
+               repeatCount="indefinite" />
+      <animate attributeName="y" 
+               values="0;20;0"
+               begin='0.2s'
+               dur="1s"
+               repeatCount="indefinite" />
+    </rect>
+    <rect x="40" y="0" width="10" height="60" rx="6" fill="#3498db">
+      <animate attributeName="height" 
+               values="60;20;60"
+               begin='0.4s'
+               dur="1s"
+               repeatCount="indefinite" />
+      <animate attributeName="y" 
+               values="0;20;0"
+               begin='0.4s'
+               dur="1s"
+               repeatCount="indefinite" />
+    </rect>
+    <rect x="60" y="0" width="10" height="60" rx="6" fill="#3498db">
+      <animate attributeName="height" 
+               values="60;20;60"
+               begin='0.6s'
+               dur="1s"
+               repeatCount="indefinite" />
+      <animate attributeName="y" 
+               values="0;20;0"
+               begin='0.6s'
+               dur="1s"
+               repeatCount="indefinite" />
+    </rect>
+    <rect x="80" y="0" width="10" height="60" rx="6" fill="#3498db">
+      <animate attributeName="height" 
+               values="60;20;60"
+               begin='0.8s'
+               dur="1s"
+               repeatCount="indefinite" />
+      <animate attributeName="y" 
+               values="0;20;0"
+               begin='0.8s'
+               dur="1s"
+               repeatCount="indefinite" />
+    </rect>
+  </svg>
+</div>
 <div class="quiz-container">
 <img src="{{ asset('img/quiz_time.png')}}" alt="Quiz Time" class="quiz-img">
 

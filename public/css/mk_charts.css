@@ -1,4 +1,6 @@
-.mkc_circle { animation: mck_progress 1000ms ease-in-out; }
+.mkc_circle { 
+    animation-delay: 500ms;
+    animation: mck_progress 1000ms ease-in-out; }
 @keyframes mck_progress { 0% { stroke-dasharray: 0, 100; }}
 
 /* Layout styles only, not needed for functionality */

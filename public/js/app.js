@@ -1,3 +1,20 @@
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        var containerLoader = document.querySelector(".containerloader");
+        if (containerLoader) {
+            containerLoader.style.transition = "opacity 1s";
+            containerLoader.style.opacity = "0";
+
+            // After the fade-out animation completes
+            setTimeout(function() {
+                containerLoader.style.display = "none";
+            }, 500); // Wait for 1 second (same duration as the fade-out animation)
+        }
+    }, 500); // Wait for 1.5 seconds before starting the animation
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     let currentQuestion = 0;
     let timer;

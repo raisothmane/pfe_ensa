@@ -18,7 +18,9 @@ class Admin
         if (auth()->user()->user_type !== 'admin') {
             return redirect()->route('dashboard')->with('error', 'You do not have permission to access this page.');
         }
-
+        if (auth()->user()->user_type == 'user') {
+            return redirect()->route('quiz.index');
+        }
         
         return $next($request);
     }
