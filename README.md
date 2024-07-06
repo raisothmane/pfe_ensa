@@ -10,36 +10,36 @@ Le projet *Quiz Game*, une application innovante pour les jeux de questions/rép
 ### 🛠️ Installation
 <h2>1-Cloner le dépôt : </h2>
 
---git clone <url-du-depot>
---cd <dossier-du-projet>
+git clone <url-du-depot>
+cd <dossier-du-projet>
 
 <h2>2-Installer les dépendances :</h2>
 
---composer install
---npm install
+composer install
+npm install
 
 <h2>3-Configurer les variables d'environnement :</h2>
 
---cp .env.example .env
+cp .env.example .env
 
 <h2>4-Générer une clé d'application :</h2>
 
---php artisan key:generate
+php artisan key:generate
 
 <h2>5-Exécuter les migrations de base de données et Alimenter la base de données :</h2>
 
---php artisan migrate --seed
+php artisan migrate --seed
 
 <h2>6-Lancer l'application : </h2>
 
---php artisan serve
+php artisan serve
 
 <h2>7-Construire les ressources frontend :</h2>
 
---npm run dev
+npm run dev
 
 
-<h2>--NB:</h2>
+<h2>NB:</h2>
 
 Pour tester les données des utilisateurs "admin" et "users", elles se trouvent sur le chemin `database\seeders\UsersTableSeeder.php`.
 
